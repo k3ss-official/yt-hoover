@@ -10,16 +10,32 @@ YT-Hoover is a powerful, user-friendly tool that extracts structured information
 
 ## 🚀 Quick Start
 
-### One-Line Install & Run
+### GenMan Standard Installation (Recommended)
 ```bash
-git clone https://github.com/your-username/yt-hoover.git
+git clone https://github.com/k3ss-official/yt-hoover.git
 cd yt-hoover
-./scripts/quick-start.sh
+./install.sh
 ```
 
-### Or try the WebUI instantly:
+The install script will:
+- ✅ Check system dependencies (conda, git, python)
+- ✅ Create conda environment with Python 3.12
+- ✅ Install all required packages with proper timing
+- ✅ Set up API configuration
+- ✅ Test the installation
+
+### Quick Manual Install (Alternative)
 ```bash
-python -m pip install -r requirements.txt
+git clone https://github.com/k3ss-official/yt-hoover.git
+cd yt-hoover
+conda create -n yt-hoover python=3.12 -y
+conda activate yt-hoover
+pip install -r requirements.txt
+```
+
+### Try the WebUI instantly:
+```bash
+conda activate yt-hoover
 python web/app.py
 ```
 Then open http://localhost:5000 in your browser! 🌐
@@ -310,4 +326,81 @@ If you find YT-Hoover useful, please consider giving it a star! ⭐
 [🌟 Star us on GitHub](https://github.com/your-username/yt-hoover) • [🐛 Report Bug](https://github.com/your-username/yt-hoover/issues) • [💡 Request Feature](https://github.com/your-username/yt-hoover/issues)
 
 </div>
+
+
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+#### Environment Creation Fails
+```bash
+# Remove existing environment and try again
+conda env remove -n yt-hoover -y
+./install.sh
+```
+
+#### Dependencies Install Outside Environment
+This happens when conda environment isn't fully initialized. The install script includes a 3-second wait to prevent this issue.
+
+**Manual fix:**
+```bash
+conda activate yt-hoover
+pip install -r requirements.txt
+```
+
+#### API Key Issues
+1. Edit `.env` file with your YouTube API key
+2. Get API key at: https://console.developers.google.com/
+3. Enable YouTube Data API v3 for your project
+
+#### WebUI Won't Start
+```bash
+# Check if port 5000 is available
+conda activate yt-hoover
+python web/app.py
+```
+
+#### Import Errors
+```bash
+# Verify environment is activated
+conda info --envs
+conda activate yt-hoover
+python -c "import flask, requests; print('Dependencies OK')"
+```
+
+### Getting Help
+
+1. **Check the logs** - Error messages usually indicate the issue
+2. **Verify API keys** - Most issues are related to missing/invalid API keys
+3. **Environment issues** - Make sure `conda activate yt-hoover` works
+4. **Dependencies** - Run `pip list` to verify packages are installed
+
+### Manual Installation Steps
+
+If the install script fails, try these manual steps:
+
+```bash
+# 1. Create environment
+conda create -n yt-hoover python=3.12 -y
+
+# 2. Wait for environment to initialize
+sleep 3
+
+# 3. Activate environment
+conda activate yt-hoover
+
+# 4. Install dependencies
+pip install -r requirements.txt
+
+# 5. Create config file
+cp .env.example .env  # Edit with your API keys
+
+# 6. Test installation
+python src/cli.py --help
+```
+
+---
+
+**Built with GenMan Standards** 🚀 | **Apache 2.0 License** ⚖️
 
