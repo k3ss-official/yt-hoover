@@ -1,0 +1,27 @@
+✅ YouTube analyzer initialized with saved API key
+🚀 Starting YT-Hoover WebUI...
+📍 URL: http://localhost:5000
+🔑 API Key: ✅ Configured
+🛠️  Debug mode: False
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://169.254.0.21:5000
+Press CTRL+C to quit
+127.0.0.1 - - [10/Jun/2025 02:26:40] "HEAD / HTTP/1.1" 200 -
+10.161.110.1 - - [10/Jun/2025 02:27:28] "HEAD / HTTP/1.1" 200 -
+10.161.110.1 - - [10/Jun/2025 02:27:28] "GET / HTTP/1.1" 200 -
+10.161.110.1 - - [10/Jun/2025 02:27:45] "GET /?locale=en HTTP/1.1" 200 -
+10.161.110.1 - - [10/Jun/2025 02:27:51] "GET / HTTP/1.1" 200 -
+10.161.110.1 - - [10/Jun/2025 02:27:52] "GET /favicon.ico HTTP/1.1" 404 -
+[INIT].... → Crawl4AI 0.6.3 
+[FETCH]... ↓ https://www.youtube.com/watch?v=dQw4w9WgXcQ                        
+| ✓ | ⏱: 3.24s 
+[SCRAPE].. ◆ https://www.youtube.com/watch?v=dQw4w9WgXcQ                        
+| ✓ | ⏱: 0.15s 
+[COMPLETE] ● https://www.youtube.com/watch?v=dQw4w9WgXcQ                        
+| ✓ | ⏱: 3.40s 
+10.161.110.1 - - [10/Jun/2025 02:28:19] "POST /api/analyze HTTP/1.1" 200 -
+10.161.110.1 - - [10/Jun/2025 02:28:41] "POST /api/export HTTP/1.1" 200 -
